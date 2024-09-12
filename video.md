@@ -1,4 +1,5 @@
 (https://www.youtube.com/watch?v=DgbSc6Ys710)
+
 影片中包含6個讓學習進步的關鍵：
 1. 神經可朔性
 2. 犯錯是大腦成長的機會
