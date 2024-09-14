@@ -9,11 +9,11 @@
 ### 2. 紀錄在 git repo 操作過程中，.git 檔案夾裡的變化，看看你可以觀察到什麼
 * **config 檔案**：這個檔案會在設置遠端 repo和設置 upstream 時更新。
 
-![image](https://github.com/chihsuanyi/113CSD/blob/main/config.png)
+![image](https://github.com/chihsuanyi/113CSD/blob/main/image/config.png)
 
 * **logs 資料夾**：push 操作會記錄到 logs/refs/remotes/ 裡，詳細記錄每次 push 和 pull。
 
-![image](https://github.com/chihsuanyi/113CSD/blob/main/logs.png)
+![image](https://github.com/chihsuanyi/113CSD/blob/main/image/logs.png)
 
 * **refs 資料夾**：存放遠端追蹤分支的狀態。
 
