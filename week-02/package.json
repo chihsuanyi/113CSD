@@ -1,0 +1,16 @@
+{
+  "name": "week-02",
+  "version": "1.0.0",
+  "description": "**安裝的 nodejs 版本** Node.js v20.17.0 他是屬於**LTS (Long Term Support) 版本**，系統長期支援並且受維護，可以減少版本不穩定或兼容性問題。",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "module": "^1.2.5"
+  }
+}
