@@ -24,16 +24,25 @@ function sum2(ary) {
 
 console.log(sum2([1, 5, 3, 2])); // 11
 
-//第三種：foreach()
+//看了 https://www.youtube.com/live/_vFuDQ_6Xt8?si=1Y9GAbDfE-P6ysPc 後學會運用 foreach()、reduce() 以及箭頭函式
+
+//第三種：foreach()，對陣列中的每個元素進行指定操作，是一種函式，不屬於 for迴圈的一種
 function sum3(ary) {
   let sum = 0;
-  ary.forEach((element) => {
-    sum += element;
-  });
+  ary.forEach((element) => (sum += element));
   return sum;
 }
 
 console.log(sum3([1, 5, 3, 2])); // 11
+
+//第四種：reduce()，對陣列中的所有元素進行迭代，並累積結果到一個單一的值
+//如下方 acc 為累計的值，cur為當前處理的值，0 為起始值
+function sum4(ary) {
+  let sum = ary.reduce((acc, cur) => (acc += cur), 0);
+  return sum;
+}
+
+console.log(sum4([1, 5, 3, 2])); // 11
 
 // 如果 sum 函式的 input 是 n，然後要回傳 1 + 2 + 3 + … + n 的話，一樣不能用 for, while 寫，要怎麼做？
 function sum_n(n) {
