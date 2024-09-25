@@ -1,5 +1,3 @@
-//array常用函示：push(), pop(), shift(), unshift()
-
 //第一個直觀想到的寫法：取出第一個ary中第一個數字加到sum，並把它刪除，做遞迴直到ary中沒有數字了
 function sum(ary) {
   if (ary.length === 0) {
@@ -25,6 +23,17 @@ function sum2(ary) {
 }
 
 console.log(sum2([1, 5, 3, 2])); // 11
+
+//第三種：foreach()
+function sum3(ary) {
+  let sum = 0;
+  ary.forEach((element) => {
+    sum += element;
+  });
+  return sum;
+}
+
+console.log(sum3([1, 5, 3, 2])); // 11
 
 // 如果 sum 函式的 input 是 n，然後要回傳 1 + 2 + 3 + … + n 的話，一樣不能用 for, while 寫，要怎麼做？
 function sum_n(n) {
