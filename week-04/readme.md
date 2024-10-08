@@ -63,22 +63,22 @@
     1. 設置簡易：相比於 Apache(另一種常見的 web server)， Nginx 因為**模組化**的設計，配置上是較為簡單
     2. 記憶體消耗低
 
-4.  pm2 套件是什麼？有什麼用處？
+## 4.  pm2 套件是什麼？有什麼用處？
 
     pm2 是一個 Node.js 應用的運行管理器，pm 是 Process Manager 的意思。
 
     pm2 可以做的事：
 
-    - 啟動、管理 processes：pm2 以**守護進程方式**運行應用，確保即使關閉終端，應用程式仍然保持運行
-    - 自動重啟：當 Node.js 崩潰或出現異常或 server 重啟之後，pm2 會自動幫我們重啟
-    - 負載均衡：pm2 可利用 CPU 多核，開啟多程序，已達到類似負載平衡的效果
-    - log 管理：pm2 可以幫我們整理 log，讓 log 以我們想要的週期分割檔案，並保存我們想要的數量，若有超過，自動刪除
-    - 性能監控：pm2 提供多項資訊，包含已重啟次數、CPU 用量、memory 用量、process id 等等
-    - 零停機重載：在不中斷服務的情況下，更新和重啟應用程式
+    * 啟動、管理 processes：pm2 以**守護進程方式**運行應用，確保即使關閉終端，應用程式仍然保持運行
+    * 自動重啟：當 Node.js 崩潰或出現異常或 server 重啟之後，pm2 會自動幫我們重啟
+    * 負載均衡：pm2 可利用 CPU 多核，開啟多程序，已達到類似負載平衡的效果
+    * log 管理：pm2 可以幫我們整理 log，讓 log 以我們想要的週期分割檔案，並保存我們想要的數量，若有超過，自動刪除
+    * 性能監控：pm2 提供多項資訊，包含已重啟次數、CPU 用量、memory 用量、process id 等等
+    * 零停機重載：在不中斷服務的情況下，更新和重啟應用程式
 
     [pm2 套件指令](https://pm2.keymetrics.io/docs/usage/quick-start/)
 
-5.  步驟 9 中提到的 `proxy` 是什麼意思？為什麼要透過 Nginx 來 `proxy` 到 Express 開發的 Web Server?
+## 5.  步驟 9 中提到的 `proxy` 是什麼意思？為什麼要透過 Nginx 來 `proxy` 到 Express 開發的 Web Server?
 
     - **proxy server（代理伺服器）**
 
@@ -100,7 +100,7 @@
 
       這時那個網站收到的 request，他只知道請求過來的身分是 proxy server，而不知道真實的 user 的身分。
 
-6.  在 readme 中提供步驟 9 的 Nginx 設定檔
+## 6.  在 readme 中提供步驟 9 的 Nginx 設定檔
 
 ```
 server {
@@ -117,7 +117,7 @@ server_name 18.142.227.163;
 
 ```
 
-7.  Security Group 是什麼？用途為何？有什麼設定原則嗎？
+## 7.  Security Group 是什麼？用途為何？有什麼設定原則嗎？
 
     Security Group (SG) 就是 EC2 的一層虛擬防火牆，僅有 SG 規則允許的流量才能到達執行 instance。
 
@@ -127,7 +127,7 @@ server_name 18.142.227.163;
     - 可以隨時新增或移除 SG 規則
     - 可以套用超過一組的 SG 規則
 
-8.  什麼是 sudo? 為什麼有的時候需要加上 sudo，有時候不用？
+## 8.  什麼是 sudo? 為什麼有的時候需要加上 sudo，有時候不用？
 
     **sudo =「Super User DO」**
     
@@ -135,7 +135,7 @@ server_name 18.142.227.163;
     
     一般在更改電腦的網路設定、查看某些密鑰、更改系統設定、安裝全與套件時才會使用 sudo 指令
 
-10.  Nginx 的 Log 檔案在哪裡？你怎麼找到的？怎麼看 Nginx 的 Log？
+## 9.  Nginx 的 Log 檔案在哪裡？你怎麼找到的？怎麼看 Nginx 的 Log？
 
     `sudo nano /etc/nginx/nginx.conf` 查看 Nginx 的主配置文件
 
@@ -143,11 +143,11 @@ server_name 18.142.227.163;
 
     `cat access.log`、`cat error.log` 指令可查看 log 資料
 
-11. 其他你在過程中遭遇的問題，有找到解答就記錄下來，沒有可以把問題放著，下次上課討論。如果沒有遇到任何問題，也可以回答「無」
+## 10. 其他你在過程中遭遇的問題，有找到解答就記錄下來，沒有可以把問題放著，下次上課討論。如果沒有遇到任何問題，也可以回答「無」
 
     一開始對虛擬主機的操作非常的不熟悉，但在老師題目的引導下慢慢找出答案了。
 
-12. 列出完成本作業時參考的資料
+## 11. 列出完成本作業時參考的資料
 
 [架設 instance 教學影片](https://youtu.be/kOHiDHb38MU?si=nEphFCaqwdPGJMfj)
 
@@ -167,4 +167,4 @@ server_name 18.142.227.163;
 
 [sudo 指令](https://yhtechnote.com/linux-sudo/)
 
-12. (optional) 如果你很初學，不放心自己的過程是否正確，可以紀錄過程，我會盡量幫忙看
+## 12. (optional) 如果你很初學，不放心自己的過程是否正確，可以紀錄過程，我會盡量幫忙看
