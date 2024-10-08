@@ -1,39 +1,45 @@
-1. 在 Readme 中提供 instance 的 public IP，我會連線過去檢查，所以要保持主機是一直在啟動中
+## 1. 在 Readme 中提供 instance 的 public IP
 
-   **18.142.227.163**
+   18.142.227.163
 
-2. 什麼是 instance type?
+## 2. 什麼是 instance type?
 
-instance 是指在雲端平台上運行的虛擬機或虛擬服務。
+  instance 是指在雲端平台上運行的虛擬機或虛擬服務。
+  
+  instance type 就是虛擬機的硬體配置，其中包含:
+  
+  - vCPU
+  - Memory
+  - Instance Storage：存取速度快，但是資料儲存非永久性。EC2 損毀或關閉時，裡面的資料會遺失
+  - Network Bandwidth：網路頻寬，代表每秒可傳輸的資料量
+  - EBS Bandwidth：EBS 頻寬。
+    EBS（Elastic Block Storage）資料儲存具永久性，但存取資料速度則相對較慢
 
-instance type 就是虛擬機的硬體配置，其中包含:
+## 3. 什麼是 Nginx？有哪些用途與特性？
 
-- vCPU
-- Memory
-- Instance Storage：存取速度快，但是資料儲存非永久性。EC2 損毀或關閉時，裡面的資料會遺失
-- Network Bandwidth：網路頻寬，代表每秒可傳輸的資料量
-- EBS Bandwidth：EBS 頻寬。
-  EBS（Elastic Block Storage）資料儲存具永久性，但存取資料速度則相對較慢
+  非同步框架的 web server，以及其他用途：正向代理、反向代理、Http Cache、負載平衡器。
+  
+  - **web server**：提供 web 處理**靜態**資源相關服務的伺服器。
+  
+    在電腦主機上執行 web server，它可以幫主機開一個 80 port，
+    
+    此時別人就能透過該電腦主機的 IP 與它建立連線。
 
-3. 什麼是 Nginx？有哪些用途與特性？
+    而我們常用的 Chrome 瀏覽器就是 web client。
+  
+    當我們要使用這個網頁時 client 會發起 request 給 server，
 
-非同步框架的 web server，以及其他用途：正向代理、反向代理、Http Cache、負載平衡器。
+    告訴 server 我們想要造訪這個網頁，希望它可以傳送對應的資源給我們，
 
-- web server：提供 web 處理**靜態**資源相關服務的伺服器。
+    而 server 接到 request 後，則會將帶有該網站資源的回應（response）回傳給 client。
+    
 
-  在電腦主機上執行 web server，它可以幫主機開一個 80 port，
-  此時別人就能透過該電腦主機的 IP 與它建立連線。
-  而我們常用的 Chrome 瀏覽器就是 web client。
-
-  當我們要使用這個網頁時 client 會發起 request 給 server，
-  告訴 server 我們想要造訪這個網頁，希望它可以傳送對應的資源給我們，
-  而 server 接到 request 後，則會將帶有該網站資源的回應（response）回傳給 client。
-
-- 正向代理與反向代理
+- **正向代理與反向代理**
 
   Nginx 可以作為 proxy server（代理伺服器）
+  
 
-* Http Cache
+* **Http Cache**
 
   Nginx 可以作為 Http Cache
 
@@ -43,8 +49,11 @@ instance type 就是虛擬機的硬體配置，其中包含:
   2. 加快資源載入：向 server 提出 request，需要等網路傳輸資料。直接從瀏覽器裡面的 cache 拿，
      就不用等這一段資料傳輸的時間，會快很多。
 
-* 負載平衡器
+
+* **負載平衡器**
+  
   網頁中的靜態資料由 web server 處理，而動態資料交給 Application Server 處理完後，
+  
   再丟 response 回去，由 web server 進行回應，最後才回到 client 端。
 
   Nginx 可以負責 request 的分發，決定 request 要被分到哪一個 Application Server 處理。
@@ -61,7 +70,7 @@ instance type 就是虛擬機的硬體配置，其中包含:
     pm2 可以做的事：
 
     - 啟動、管理 processes：pm2 以**守護進程方式**運行應用，確保即使關閉終端，應用程式仍然保持運行
-    - 自動重啟：(1) 當 Node.js 崩潰或出現異常 (2) server 重啟之後，pm2 會自動幫我們重啟
+    - 自動重啟：當 Node.js 崩潰或出現異常或 server 重啟之後，pm2 會自動幫我們重啟
     - 負載均衡：pm2 可利用 CPU 多核，開啟多程序，已達到類似負載平衡的效果
     - log 管理：pm2 可以幫我們整理 log，讓 log 以我們想要的週期分割檔案，並保存我們想要的數量，若有超過，自動刪除
     - 性能監控：pm2 提供多項資訊，包含已重啟次數、CPU 用量、memory 用量、process id 等等
@@ -93,7 +102,7 @@ instance type 就是虛擬機的硬體配置，其中包含:
 
 6.  在 readme 中提供步驟 9 的 Nginx 設定檔
 
-'''
+```
 server {
 listen 80;
 server_name 18.142.227.163;
@@ -106,7 +115,7 @@ server_name 18.142.227.163;
 
     }
 
-'''
+```
 
 7.  Security Group 是什麼？用途為何？有什麼設定原則嗎？
 
@@ -121,10 +130,12 @@ server_name 18.142.227.163;
 8.  什麼是 sudo? 為什麼有的時候需要加上 sudo，有時候不用？
 
     **sudo =「Super User DO」**
+    
     若在指令的前面加上 sudo，就代表這個指令是透過 Super User（最高權限使用者 root）所執行的，
+    
     一般在更改電腦的網路設定、查看某些密鑰、更改系統設定、安裝全與套件時才會使用 sudo 指令
 
-9.  Nginx 的 Log 檔案在哪裡？你怎麼找到的？怎麼看 Nginx 的 Log？
+10.  Nginx 的 Log 檔案在哪裡？你怎麼找到的？怎麼看 Nginx 的 Log？
 
     `sudo nano /etc/nginx/nginx.conf` 查看 Nginx 的主配置文件
 
@@ -132,11 +143,11 @@ server_name 18.142.227.163;
 
     `cat access.log`、`cat error.log` 指令可查看 log 資料
 
-10. 其他你在過程中遭遇的問題，有找到解答就記錄下來，沒有可以把問題放著，下次上課討論。如果沒有遇到任何問題，也可以回答「無」
+11. 其他你在過程中遭遇的問題，有找到解答就記錄下來，沒有可以把問題放著，下次上課討論。如果沒有遇到任何問題，也可以回答「無」
 
     一開始對虛擬主機的操作非常的不熟悉，但在老師題目的引導下慢慢找出答案了。
 
-11. 列出完成本作業時參考的資料
+12. 列出完成本作業時參考的資料
 
 [架設 instance 教學影片](https://youtu.be/kOHiDHb38MU?si=nEphFCaqwdPGJMfj)
 
