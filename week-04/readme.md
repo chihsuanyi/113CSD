@@ -1,6 +1,6 @@
 ## 1. 在 Readme 中提供 instance 的 public IP
 
-   18.142.227.163
+   [18.142.227.163](http://18.142.227.163)
 
 ## 2. 什麼是 instance type?
 
