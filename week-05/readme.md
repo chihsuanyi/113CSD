@@ -1,6 +1,6 @@
 ## 1. 你的網址，應該是 https://www.xxx.xxx，點擊過去應該要可以看到個人作業 4 架設的 Express server （由 Nginx proxy 到 Express）
 
-http://www.chihsuan1.site
+https://www.chihsuan1.site
 
 ## 2. 你在哪裡購買網域的
 
