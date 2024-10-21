@@ -1,6 +1,6 @@
 ## 1. 你的網址，應該是 https://www.xxx.xxx，點擊過去應該要可以看到個人作業 4 架設的 Express server （由 Nginx proxy 到 Express）
 
-https://www.chihsuan1.site
+https://nccu.chihsuan1.site
 
 ## 2. 你在哪裡購買網域的
 
@@ -12,7 +12,7 @@ Address record，用於將 Domain Name 解析為 IPv4 地址，讓用戶能夠�
 
 A record 組成：
 
-1. Host：指定主機名 `＠ (= chihsuan1.site)`、`www (= www.chihsuan1.site)`
+1. Host：指定主機名 `＠`、`www`
 
 2. Type：`A record`
 
